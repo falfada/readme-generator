@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/falfada/readme-generator#readme",
   "dependencies": {
-    "inquirer": "^9.2.20"
+    "inquirer": "^8.2.4"
   }
 }
