@@ -1,59 +1,47 @@
-// 1. Title
-// 2. Description
-// 3. Table of Contents -> anchor links
-// 4. Installation
-// 5. Usage
-// 6. License [list of options] -> badge for that license is added and a notice
-// 7. Contributing
-// 8. Tests
-// 9. Questions -> github username | email address
-
 const inquirer = require('inquirer');
 
-function handleResponse(response) {
-    const steps = parseInt(response.installationSteps);
-    askInstallationStep(response, steps);
+function handleResponse(response){
+    console.log(JSON.stringify(response));
 }
 
-function askInstallationStep(response, stepsLeft) {
-    if (stepsLeft === 0) {
-        console.log(JSON.stringify(response));
-        return;
-    }
-
-    inquirer.prompt([
-        {
-            type: "input",
-            message: `Provide the step description of how to get the development environment running`,
-            name: "installation",
-        }
-    ]).then((answer) => {
-        response.installation = answer.installation;
-        askInstallationStep(response, stepsLeft - 1);
-    });
-}
-
-function askUser() {
+function askTitle(){
     return inquirer.prompt([
         {
-            type: "input",
-            message: "Title of your project:",
-            name: "title",
+            type: 'input',
+            message: 'Whats your title?',
+            name: 'title'
         },
         {
-            type: "input",
-            message: "Provide a short description explaining the what, why, and how of your project:",
-            name: "description",
-        },
-        {
-            type: "input",
-            message: "How many steps are required to install your project?",
-            name: "installationSteps",
+            type: 'input',
+            message: 'Write your description:',
+            name: 'description',
         },
     ]);
 }
-
-askUser().then(handleResponse);
-
-
-// Ask for the number of steps to loop until that number is met
+function askUser(){
+    const steps = [];
+    
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'Provide the step description of how to get the development environment running.',
+            name: 'step',
+        },
+        {
+            type: 'confirm',
+            message: 'Do you want to add another step?',
+            name: 'addAnother',
+            default: 'false',
+        },
+    ]);
+}
+async function callInquirers(){
+    const inq1 = await askTitle();
+    const inq2 = await askUser();
+    return{
+        title: inq1.title,
+        description: inq1.description,
+        step: inq2.step,
+    }
+}
+callInquirers().then(handleResponse);
