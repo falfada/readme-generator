@@ -58,8 +58,8 @@ const questions = [
 function writeToFile(fileName, data) {}
 
 function handleResponse(response){
-    console.log(response.license);
-    generateMarkdownFile.generateMarkdown(response);
+    const returnedResponse = generateMarkdownFile.generateMarkdown(response);
+    console.log(returnedResponse);
 }
 
 // TODO: Create a function to initialize app
