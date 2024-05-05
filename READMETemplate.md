@@ -24,6 +24,29 @@ You can find the full text of the license in the LICENSE file or at:
 ```
 
 ## Contributing
+1. **Clone the Repository**
+```md 
+git clone <https://github.com/username/repository.git>
+```
+2. **Create a Branch:**
+```md 
+git checkout -b feature-branch
+```
+3. **Make changes**
+
+4. **Stage changes**
+```md 
+git add .
+```
+5. **Commit changes**
+```md 
+git commit -m "Add new feature"
+```
+6. **Push changes**
+```md
+git push origin feature-branch
+```
+7. **Create Pull Request**
 
 ## Tests
 
