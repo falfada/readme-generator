@@ -47,6 +47,7 @@ git push origin feature-branch
 ```
 7. **Create Pull Request**
 
+
 ## Tests
 **Preconditions:**
 - Familiarize yourself with the project's functionality and expected behavior by reviewing the README and any relevant documentation.
@@ -54,11 +55,14 @@ git push origin feature-branch
     - Verify that the basic functionality of the project works as expected.
     - **Expected Result:** The project executes without errors, and the expected output is displayed.
 2. **Input Validation Test:**
-    - **Description:** Test the project's handling of different types of input.
+    - Test the project's handling of different types of input.
     - **Expected Result:** The project properly validates input data and provides appropriate feedback for both valid and invalid inputs.
 3. **Error Handling Test:**
-    - Evaluate the project's error handling capabilities.
-    - **Expected Result:** The project gracefully handles errors, provides informative error messages, and maintains stability.
+     - Evaluate the project's error handling capabilities.
+     - **Expected Result:** The project gracefully handles errors, provides informative error messages, and maintains stability
+**Postconditions:**
+- Record any issues, bugs, or unexpected behavior encountered during testing.
+- Report test results and any identified issues to the me through GitHub issues or other designated channels.
 
 **Postconditions:**
 - Record any issues, bugs, or unexpected behavior encountered during testing.
