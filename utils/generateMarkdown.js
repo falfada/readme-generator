@@ -2,7 +2,7 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   const noBlankSpace = license.replace(/ /g, "_");
-  if ((license = "")) {
+  if ((license === "")) {
     return;
   }
   return `![License](https://img.shields.io/badge/License-${noBlankSpace}-lightgreen.svg)`;
@@ -26,7 +26,7 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if ((license = "")) {
+  if ((license === "")) {
     return "";
   }
   return `
@@ -99,7 +99,9 @@ ${data.installation}
 
 ## Usage
 ${data.usage}
+
 ${contributionText}
+
 ${testText}
 
 ## Questions
