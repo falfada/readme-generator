@@ -2,7 +2,7 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   const noBlankSpace = license.replace(/ /g, "_");
-  if ((license === "")) {
+  if (license === "") {
     return;
   }
   return `![License](https://img.shields.io/badge/License-${noBlankSpace}-lightgreen.svg)`;
@@ -26,7 +26,7 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if ((license === "")) {
+  if (license === "") {
     return "";
   }
   return `
@@ -42,7 +42,7 @@ You can find the full text of the license in the LICENSE file or at:
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   let contributionText = "";
-
+  let tableOfContents = ["Description", "Installation", "Usage", "Questions"];
   let testText = "";
   if (data.contribution) {
     contributionText = `## Contributing
@@ -70,6 +70,8 @@ git push origin feature-branch
 \`\`\`
 
 7. **Create Pull Request**`;
+    // Adding `Contributing` to Table Of Contents
+    tableOfContents.splice(tableOfContents.length - 1, 0, "Contributing");
   }
 
   if (data.tests) {
@@ -89,16 +91,30 @@ git push origin feature-branch
     **Postconditions:**
     - Record any issues, bugs, or unexpected behavior encountered during testing.
     - Report test results and any identified issues to the me through GitHub issues or other designated channels.`;
+    // Adding `Tests` to Table Of Contents
+    tableOfContents.splice(tableOfContents.length - 1, 0, "Tests");
   }
+
+  // Mapping through the `tableOfContents` array to print each item into a new variable.
+  const tableOfContentsText = tableOfContents
+    .map((item) => `- [${item}](#${item.toLowerCase()})`)
+    .join("\n");
+
   return `# ${data.title}
 
     ${renderLicenseSection(data.license)}
+
+## Table Of Contents
+${tableOfContentsText}
 
 ## Installation
 ${data.installation}
 
 ## Usage
 ${data.usage}
+\`\`\`md
+![alt text](assets/images/screenshot.png)
+\`\`\`
 
 ${contributionText}
 
