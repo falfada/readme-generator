@@ -115,9 +115,7 @@ ${data.installation}
 
 ## Usage
 ${data.usage}
-\`\`\`md
 ![alt text](assets/images/screenshot.png)
-\`\`\`
 
 ## License
 ${renderLicenseSection(data.license)}
